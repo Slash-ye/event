@@ -19,7 +19,7 @@ namespace Event.Repositories
             Evaluation = new EvaluationRepository(context);
 
             UserInterestCateogry = new UserInterestCateogryRepository(context);
-            UserParticipantsEventCateogry = new UserParticipantsEventRepository(context);
+            UserParticipantsEvent = new UserParticipantsEventRepository(context);
             Event = new EventRepository(context);
 
         }
@@ -28,7 +28,7 @@ namespace Event.Repositories
         public IEvaluationRepository Evaluation { get; private set; }
 
         public IUserInterestCateogryRepository UserInterestCateogry { get; private set; }
-        public IUserParticipantsEventRepository UserParticipantsEventCateogry { get; private set; }
+        public IUserParticipantsEventRepository UserParticipantsEvent { get; private set; }
 
         public IEventRepository Event { get; private set; }
 

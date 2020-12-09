@@ -11,7 +11,7 @@ namespace Event.Repositories
         IEventCategoryRepository EventCategory { get; }
         IEvaluationRepository Evaluation { get; }
         IUserInterestCateogryRepository UserInterestCateogry { get; }
-        IUserParticipantsEventRepository UserParticipantsEventCateogry { get; }
+        IUserParticipantsEventRepository UserParticipantsEvent { get; }
         IEventRepository Event{ get; }
 
         int Complete();
