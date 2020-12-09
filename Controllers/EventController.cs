@@ -94,6 +94,7 @@ namespace Event.Controllers
 
                     //TODO: Update Here 
 
+                    unitOfWork.Complete();
                     return @event;
 
                 }
@@ -124,6 +125,69 @@ namespace Event.Controllers
 
                     //TODO: Delete  Here 
                     unitOfWork.Event.Remove(@event);
+                    unitOfWork.Complete();
+
+                    return @event;
+                }
+            }
+            catch (HttpResponseException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                //this catch is for unexpected error  
+                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex));
+            }
+
+        }
+
+        [HttpPut]
+        public Models.Event Close(long id)
+        {
+            try
+            {
+
+                using (UnitOfWork unitOfWork = new UnitOfWork(db))
+                {
+                    var @event = unitOfWork.Event.Get(id);
+                    if (@event == null)
+                        throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.NotFound, "Event Not Found"));
+
+                    //TODO: update  Here 
+                    @event.closedAt = DateTime.Now;
+                    unitOfWork.Complete();
+                    return @event;
+                }
+            }
+            catch (HttpResponseException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                //this catch is for unexpected error  
+                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex));
+            }
+
+        }
+
+
+        [HttpPut]
+        public Models.Event Cancel(long id)
+        {
+            try
+            {
+
+                using (UnitOfWork unitOfWork = new UnitOfWork(db))
+                {
+                    var @event = unitOfWork.Event.Get(id);
+                    if (@event == null)
+                        throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.NotFound, "Event Not Found"));
+
+                    //TODO: update  Here 
+                    @event.cancelAt = DateTime.Now;
+                    unitOfWork.Complete();
                     return @event;
                 }
             }
@@ -155,6 +219,7 @@ namespace Event.Controllers
                         throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.NotFound, "Event Not Found"));
 
                     unitOfWork.UserParticipantsEvent.Add(userParticipant);
+                    unitOfWork.Complete();
                     return @event;
                 }
             }
@@ -184,6 +249,7 @@ namespace Event.Controllers
                         throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.NotFound, "Not Register before"));
 
                     unitOfWork.UserParticipantsEvent.Remove(userParticipant);
+                    unitOfWork.Complete();
                     return userParticipant;
                 }
             }

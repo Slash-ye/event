@@ -13,6 +13,9 @@ namespace Event.Models
         public int eventStatus { get; set; }
         public string Image { get; set; }
 
+        public DateTime? closedAt { get; set; }
+        public DateTime? cancelAt { get; set; }
+
         [ForeignKey("eventCategory")]
         public long eventCategoryId { get; set; }
         public EventCategory eventCategory { get; set; }

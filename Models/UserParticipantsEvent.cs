@@ -10,9 +10,17 @@ namespace Event.Models
     {
         public long id { get; set; }
         public string userId { get; set; }
+        public type type { get; set; }
 
         [ForeignKey("events")]
         public long eventId { get; set; }
         public Event events { get; set; }
+    }
+
+
+    public enum type
+    {
+        Intersting = 1,
+        Goning = 2,
     }
 }

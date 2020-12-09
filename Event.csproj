@@ -213,10 +213,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\EventException.cs" />
     <Compile Include="Migrations\202012040043312_CreateAllTheTables.cs" />
     <Compile Include="Migrations\202012040043312_CreateAllTheTables.Designer.cs">
       <DependentUpon>202012040043312_CreateAllTheTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012090233175_addTypeColumnAndCancelAndCloseDate.cs" />
+    <Compile Include="Migrations\202012090233175_addTypeColumnAndCancelAndCloseDate.Designer.cs">
+      <DependentUpon>202012090233175_addTypeColumnAndCancelAndCloseDate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -305,6 +308,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -317,6 +321,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202012040043312_CreateAllTheTables.resx">
       <DependentUpon>202012040043312_CreateAllTheTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012090233175_addTypeColumnAndCancelAndCloseDate.resx">
+      <DependentUpon>202012090233175_addTypeColumnAndCancelAndCloseDate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -4,8 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Event.Helpers;
-using Event.Models;
+ using Event.Models;
 using Event.Repositories;
 
 namespace Event.Controllers
