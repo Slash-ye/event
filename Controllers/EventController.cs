@@ -1,5 +1,6 @@
 ﻿using Event.Models;
 using Event.Repositories;
+using Event.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,13 +60,9 @@ namespace Event.Controllers
             try
             {
                 if (!ModelState.IsValid) throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ModelState));
-                using (UnitOfWork unitOfWork = new UnitOfWork(db))
-                {
-                    unitOfWork.Event.Add(model);
-                    unitOfWork.Complete();
-                    return model;
 
-                }
+                EventServices service = new EventServices();
+                return service.CreateNewEvent(model);
             }
             catch (HttpResponseException ex)
             {

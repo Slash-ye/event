@@ -248,6 +248,7 @@
     <Compile Include="Repositories\Repository\UserParticipantsEventRepository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
+    <Compile Include="Services\EventServices.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

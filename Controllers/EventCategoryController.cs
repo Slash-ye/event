@@ -115,7 +115,6 @@ namespace Event.Controllers
         {
             try
             {
- 
                 using (UnitOfWork unitOfWork = new UnitOfWork(db))
                 {
                     var eventCategory = unitOfWork.EventCategory.Get(id);
